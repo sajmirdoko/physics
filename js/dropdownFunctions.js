@@ -54,7 +54,6 @@ function makeRow(parent) {
     return row;
 };
 
-
 function makeItem(parent) {
     /*Takes the dropdown object as an argument and returns
     an item object that can hold row objects in the dropdown.
@@ -294,7 +293,6 @@ function buttonContainer(parent) {
     };
 
 };
-
 
 function setPedroStyle(canvas) {
     //Sets the CSS required for the dropdown

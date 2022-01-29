@@ -19,9 +19,9 @@ const plotDisplay = {
 }
 
 let mainColor = {
-  r: 244,
+  r: 227,
   g: 0,
-  b: 97
+  b: 27
 }
 
 let heightSlider, angleSlider, velocitySlider, massSlider, areaSlider, speedSlider, scaleSlider, ratioSlider, periodSlider, gSlider, airSlider;
@@ -107,7 +107,7 @@ function setup() {
   }
   projectileCanvas.fill(mainColor.r, mainColor.g, mainColor.b);
   projectileCanvas.noStroke();
-  projectileCanvas.background(20);
+  projectileCanvas.background(0);
   projectileCanvas.rectMode(CENTER);
 
   textSize(20);
@@ -181,7 +181,6 @@ function setup() {
     constants.ρ = constantsDefault.ρ;
     resetCanvas(projectileCanvas);
     reset();
-    plot1.setPoints([]);
     projectile.trajectory = [];
     projectile.trajectoryCount = 0;
     controls.loop = false
@@ -383,26 +382,10 @@ function setup() {
     i4r4.setLabel('Air density: ' + constants.ρ.toFixed(2) + ' kg/m³');
   }
 
-  plot1 = new GPlot(plotCanvas); //setting up plotting window (grafica.js)
-  plot1.setLineColor(255);
-  plot1.setBoxBgColor(20);
-  plot1.setBoxLineColor(150)
-  plot1.title.fontColor = 255;
-  plot1.title.fontName = 'sans-serif'
-  plot1.title.fontSize = 20
-  plot1.title.fontStyle = NORMAL
-  plot1.title.offset = 2
-
-  plot1.setPos(0, 220);
-  plot1.setMar(10, 10, 22, 10);
-  plot1.setOuterDim(plotDisplay.W, plotDisplay.H / 2);
-  plot1.setTitleText("Velocity in time")
-
-  plot1.addPoint(new GPoint(projectile.t + plotTime, projectile.v));
 }
 
 function draw() {
-  background(20);
+  background(0);
 
   drawGraphics(simCanvas, projectileCanvas);
 
@@ -458,8 +441,8 @@ function drawPlatform(canvas) {
 function drawGraphics(c, pc) {
   //c = simCanvas
   //pc = projectileCanvas
-  c.background(20);
-  pc.background(20, 255);
+  c.background(0);
+  pc.background(0, 255);
 
   if (moveProjectile) {
     pc.rotate(projectile.dθ); // rotate projectile
@@ -490,7 +473,7 @@ function drawGraphics(c, pc) {
 }
 
 function drawPlots(c) {
-  c.background(20)
+  c.background(0)
 
   c.fill(255)
   c.noStroke()
@@ -504,19 +487,6 @@ function drawPlots(c) {
     c.text('drag = ' + ((projectile.drag * params.m / 100).toFixed(0) * 100) + ' N', 7 * c.textSize() + 20, 8 * c.textSize());
   }
 
-  //points[points.length] = ;
-  if (moveProjectile) {
-    plot1.addPoint(new GPoint(projectile.t + plotTime, (sqrt(projectile.vy ** 2 + projectile.vx ** 2))));
-    if (plot1.getPoints().length > 500) {
-      plot1.removePoint(0)
-    }
-  }
-
-  plot1.beginDraw();
-  plot1.drawBox();
-  plot1.drawTitle();
-  plot1.drawLines();
-  plot1.endDraw();
 }
 
 //Updating position and velocity

@@ -25,6 +25,7 @@ html, body {
     margin: 60px;
     text-align: center;
     isolation: isolate;
+    min-height: 70vh;
 }
 
 
