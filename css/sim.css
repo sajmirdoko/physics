@@ -53,10 +53,8 @@ h2 span{
 
 
 #simwrapper{
-    background-color: #E3001B;
     position: relative;
     display: inline-block;
-    border: 4px solid #E3001B;
     border-radius: 12px;
 }
 

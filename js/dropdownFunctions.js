@@ -322,6 +322,7 @@ function setPedroStyle(canvas) {
           overflow-x: hidden;
           margin-left: auto;
           right: 0%;
+          background-color: #000;
         }
         #simulationSettingsId>div{
           padding-left: 0;
