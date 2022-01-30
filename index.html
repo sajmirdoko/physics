@@ -21,37 +21,46 @@
       </a>
 
       <ul class="nav col-12 col-lg-auto justify-content-center">
-        <li><a type="button" class="nav-link link-dark active" id="presentationAreaLink" data-bs-toggle="tab"
-            data-bs-target="#presentationArea" type="button" role="tab" aria-controls="presentationArea"
-            aria-selected="true">Presentation</a></li>
-        <li><a type="button" class="nav-link link-dark" id="simulationAreaLink" data-bs-toggle="tab"
+        <li>
+          <a type="button" class="nav-link link-dark active" id="simulationAreaLink" data-bs-toggle="tab"
             data-bs-target="#simulationArea" type="button" role="tab" aria-controls="simulationArea"
-            aria-selected="false">Simulation</a></li>
+            aria-selected="false">Simulation</a>
+        </li>
+        <li>
+          <a type="button" class="nav-link link-dark" id="presentationAreaLink" data-bs-toggle="tab"
+            data-bs-target="#presentationArea" type="button" role="tab" aria-controls="presentationArea"
+            aria-selected="true">Presentation</a>
+        </li>
       </ul>
     </header>
     <div class="tab-content" id="myTabContent">
-      <div class="row tab-pane fade show active" id="presentationArea" role="tabpanel"
-        aria-labelledby="presentationAreaLink">
 
-        <div class="col-12" style="min-height: 85vh;">
-          <h1>Here is the presentation</h1>
-        </div>
-
-      </div>
-
-      <div class="row tab-pane fade" id="simulationArea" role="tabpanel" aria-labelledby="simulationArea">
-
+      <div class="row tab-pane fade show active" id="simulationArea" role="tabpanel" aria-labelledby="simulationArea">
         <div class="col-12">
-          <div id="simcontainer">
-            <div id="simwrapper"></div>
+          <div id="simulationContainer">
+            <div id="simulationWrapper"></div>
           </div>
         </div>
       </div>
+
+      <div class="row tab-pane fade" id="presentationArea" role="tabpanel"
+        aria-labelledby="presentationAreaLink">
+        <div class="col-12 mt-2" style="min-height: 85vh;">
+          <div class="container">
+            <div class="row">
+              <div class="col-12 text-center">
+                <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTnhpsL5nayBq2g9vSdnROO7dh-o8cna_3b_fNi-eyInPykZDJS5n8_HofdWyb1ayYaOAhxQgecbuPQ/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <footer class="footer mt-auto py-1 bg-light">
       <div class="container">
-        <span class="text-muted">Introduction to Physics final Project - CIT - Sajmir Doko</span>
+        <span class="text-muted">Canadian Institute of Technology - Fundamentals of Physics - created by Sajmir Doko</span>
       </div>
     </footer>
     <script src="js/p5.min.js"></script>

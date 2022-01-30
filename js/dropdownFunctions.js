@@ -347,20 +347,18 @@ function setPedroStyle(canvas) {
         }
 
         #Root:checked ~ label{
-          background-color: #222;
+          background-color: #E3001B;
         }
 
         #Root:checked ~ label::before, .item>input:checked ~ label::before{
           transform: rotate(-90deg);
           display: inline-block;
-          transition-duration: .2s;
           transform: rotate(-180deg);
         }
 
         #Root:not(:checked) ~ label::before, .item>input:not(:checked)~label::before{
           transform: rotate(-90deg);
           display: inline-block;
-          transition-duration: .2s;
         }
 
         /*Making it pretty*/
@@ -384,7 +382,7 @@ function setPedroStyle(canvas) {
           padding: 0;
           align-items: center;
           justify-contents: center;
-          border-radius: 0.2em;
+          background-color: #E3001B;
         }
         .item{
           margin: 0;
@@ -404,12 +402,11 @@ function setPedroStyle(canvas) {
           font-weight: 600;
           font-size: 1em;
           padding-left: 0.3em;
-          background-color: #222;
+          background-color: #E3001B;
           display: flex;
           align-items: center;
-          border-bottom: 0.05em solid #333;
-          border-top: 0.05em solid #333;
-          border-radius: 0.2em;
+          border-bottom: 0.05em solid #E3001B;
+          border-top: 0.05em solid #E3001B;
           margin-top: 0.025em;
           margin-bottom: 0.05em;
           padding: 0.5em;
@@ -418,13 +415,12 @@ function setPedroStyle(canvas) {
 
 
         div.item>ul>li{
-          border-radius: 0.2em;
           min-height: 2em;
           padding-left: .4em;
           padding-right: 1em;
           margin-top: 0;
           margin-bottom: 0;
-          background: #222;
+          background: #E3001B;
           display: flex;
           align-items: center;
           font-size: .8em;
@@ -442,17 +438,15 @@ function setPedroStyle(canvas) {
           padding-left: 1%;
           margin: 0;
           min-height: 1em;
-          background-color: #222;
-          border-radius: .2em;
+          background-color: #E3001B;
         }
 
         .item>ul>li:hover, .item:hover ~ ul, .item>label:hover{
-          background-color: #333;
+          background-color: #E3001B;
         }
 
          label:hover{
-          transform: scale(1.01);
-          background-color: #333;
+          background-color: #E3001B;
         }
 
         /* width */
@@ -514,7 +508,7 @@ function setPedroStyle(canvas) {
           cursor: pointer;
           background: #3071a9;
           border-radius: .9em;
-          border: .05em solid #010101;
+          border: .05em solid #fff;
         }
         .sliderContainer>input[type=range]::-webkit-slider-thumb {
           border: 1px solid #000000;
@@ -525,7 +519,6 @@ function setPedroStyle(canvas) {
           cursor: pointer;
           -webkit-appearance: none;
           margin-top: -0.55em;
-          transition-duration: .2s;
         }
 
         .sliderContainer>input[type=range]::-webkit-slider-thumb:hover{
@@ -545,7 +538,7 @@ function setPedroStyle(canvas) {
           cursor: pointer;
           background: #3071a9;
           border-radius: .9em;
-          border: .05em solid #010101;
+          border: .05em solid #fff;
         }
 
         .sliderContainer>input[type=range]::-moz-range-thumb {
@@ -557,7 +550,6 @@ function setPedroStyle(canvas) {
           cursor: pointer;
           -webkit-appearance: none;
           margin-top: -0.55em;
-          transition-duration: .2s;
         }
 
         .sliderContainer>input[type=range]::-ms-track {
@@ -566,17 +558,17 @@ function setPedroStyle(canvas) {
           cursor: pointer;
           background: #3071a9;
           border-radius: .9em;
-          border: .05em solid #010101;
+          border: .05em solid #fff;
         }
         .sliderContainer>input[type=range]::-ms-fill-lower {
           background: #2a6495;
-          border: 0.2px solid #010101;
+          border: 0.2px solid #fff;
           border-radius: 2.6px;
           box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
         }
         .sliderContainer>input[type=range]::-ms-fill-upper {
           background: #3071a9;
-          border: 0.2px solid #010101;
+          border: 0.2px solid #fff;
           border-radius: 2.6px;
           box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
         }
@@ -589,7 +581,6 @@ function setPedroStyle(canvas) {
           cursor: pointer;
           -webkit-appearance: none;
           margin-top: -0.55em;
-          transition-duration: .2s;
         }
 
         /*NOW TIME FOR CHECKBOXES*/
@@ -601,7 +592,6 @@ function setPedroStyle(canvas) {
           color: white;
           align-items: center;
           opacity: 0.8;
-          transition-duration: .2s;
         }
         .cbContainer:hover{
           opacity: 1;
@@ -619,11 +609,10 @@ function setPedroStyle(canvas) {
 
         .item ul li button {
           border-radius: .4em;
-          background-color: #333;
-          border: .1em solid grey;
+          background-color: #E3001B;
+          border: .1em solid #000;
           outline: none;
-          color: #ccc;
-          transition-duration: .2s;
+          color: #000;
           font: inherit;
           font-weight: 600;
           padding: .2em .4em .2em .4em;
@@ -632,8 +621,8 @@ function setPedroStyle(canvas) {
         }
 
         .item ul li button:hover {
-          color: white;
-          background: #444;
+          color: #fff;
+          background: #000;
         }
         `;
     document.head.appendChild(style);

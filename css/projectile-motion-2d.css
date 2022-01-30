@@ -20,7 +20,7 @@ html, body {
   min-height: 100%;
 }
 
-#simcontainer{
+#simulationContainer{
     display: block;
     margin-top: 10px;
     text-align: center;
@@ -53,7 +53,7 @@ h2 span{
 
 
 
-#simwrapper{
+#simulationWrapper{
     position: relative;
     display: inline-block;
     border-radius: 12px;
@@ -275,7 +275,6 @@ h2 span{
     -moz-border-radius: 0;
     border-radius: 0;
     padding: 0 5px;
-    -moz-outline: none;
     font-size: 14px;
   }
   .qs_select option {
@@ -344,9 +343,9 @@ h2 span{
   }
   .qs_file_chooser_label {
     background-color: #000000;
-    color: #bbbbbb;
+    color: #000000;
     height: 30px;
-    border: 1px solid #666666;
+    border: 1px solid #000000;
     font: 12px sans-serif;
     width: 100%;
     display: block;
