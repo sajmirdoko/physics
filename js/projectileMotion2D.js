@@ -35,7 +35,7 @@ const paramsDefault = {
   θ: 60, //initial angle [°]
   v: 40, //initial velocity [m/s]
   y0: 10, //initial height [m]
-  drag: true, //apply drag
+  drag: false, //apply drag
   trajectory: true, //display trajectory
   r: 2, //Sphere radius [m]
   m: 20000, //mass of Sphere [kg]
@@ -115,11 +115,11 @@ function setup() {
   plotCanvas.textFont('sans-serif')
 
   gridCanvas = createGraphics(simDisplay.W, simDisplay.H)
-  let step = 38
+  let step = 15
 
   gridCanvas.clear()
   gridCanvas.stroke(255, 50)
-  gridCanvas.strokeWeight(1)
+  gridCanvas.strokeWeight(0.5)
   for (let i = 0; i <= simDisplay.H / step; i++) {
     gridCanvas.line(2 * i * step, 0, 2 * i * step, simDisplay.H)
     gridCanvas.line(0, simDisplay.H - i * step, simDisplay.W - 2, simDisplay.H - i * step)
@@ -133,10 +133,6 @@ function setup() {
   i1.setLabel('Controls');
   let i2 = makeItem(dd);
   i2.setLabel('Parameters');
-  // let i3 = makeItem(dd);
-  // i3.setLabel('User Interface');
-  // let i4 = makeItem(dd);
-  // i4.setLabel('Constants');
 
   let i1r1 = makeRow(i1);
   let controlButtons = new buttonContainer(i1r1)
@@ -147,24 +143,11 @@ function setup() {
   let i2r2 = makeRow(i2); //velocity
   let i2r3 = makeRow(i2); //angle
   let i2r4 = makeRow(i2); //initial height
-  let i2r5 = makeRow(i2); //checkbox for drag
+  // let i2r5 = makeRow(i2); //checkbox for drag
   let i2r6 = makeRow(i2); //frontal area
   let i2r7 = makeRow(i2); //mass
   let i2r8 = makeRow(i2);
   i2r8.setLabel('Projectile density: ' + Math.round(calculateDensity() / 10) * 10 + ' kg/m³');
-
-  // let i3r1 = makeRow(i3); //scale
-  // let i3r2 = makeRow(i3); //speed
-  // let i3r3 = makeRow(i3); //display trajectory
-  // let i3r4 = makeRow(i3); //trajectory count
-  // let i3r5 = makeRow(i3); //trajectory period
-
-  // let i4r1 = makeRow(i4); //g
-  // let i4r2 = makeRow(i4); //g label
-  // i4r2.setLabel('Gravitational acceleration: ' + constants.g.toFixed(2) + ' m/s²');
-  // let i4r3 = makeRow(i4); //air density
-  // let i4r4 = makeRow(i4); // display density
-  // i4r4.setLabel('Air density: ' + constants.ρ.toFixed(2) + ' kg/m³');
 
   let btnPause = controlButtons.makeButton('Pause', NaN);
   btnPause.onclick = () => {
@@ -285,13 +268,13 @@ function setup() {
   }
 
   //drag
-  let dragCont = makeCheckbox(i2r5);
-  dragCont.setLabel('Apply Drag');
-  let applyDrag = dragCont.checkbox;
-  applyDrag.checked = params.drag ? true : false;
-  applyDrag.onclick = () => {
-    params.drag = applyDrag.checked ? true : false
-  }
+  // let dragCont = makeCheckbox(i2r5);
+  // dragCont.setLabel('Apply Drag');
+  // let applyDrag = dragCont.checkbox;
+  // applyDrag.checked = params.drag ? true : false;
+  // applyDrag.onclick = () => {
+  //   params.drag = applyDrag.checked ? true : false
+  // }
 
   //frontal area
   areaSlider = makeSlider(i2r6);
@@ -315,72 +298,6 @@ function setup() {
     params.m = massSlider.slider.value;
     i2r8.setLabel('Projectile density: ' + Math.round(calculateDensity() / 10) * 10 + ' kg/m³');
   }
-
-  // scaleSlider = makeSlider(i3r1);
-  // scaleSlider.setTitleLabel('Scale');
-  // scaleSlider.setParameters(0.005, 0.001, 0.001, (params.scale / 3780).toFixed(3))
-  // scaleSlider.slider.oninput = () => {
-  //   scaleSlider.setValueLabel(scaleSlider.slider.value)
-  //   projectile.trajectory = [];
-  //   projectile.trajectoryCount = 0;
-  //   params.scale = 3780 * scaleSlider.slider.value;
-  //   projectileCanvas.resizeCanvas(params.r * 4 * params.scale, params.r * 4 * params.scale);
-  //   projectileCanvas.translate(params.r * 2 * params.scale, params.r * 2 * params.scale);
-  //   projectileCanvas.rotate(-projectile.θ);
-  // }
-
-  // speedSlider = makeSlider(i3r2);
-  // speedSlider.setTitleLabel('Speed');
-  // speedSlider.setParameters(10, .1, .1, params.speed)
-  // speedSlider.slider.oninput = () => {
-  //   speedSlider.setValueLabel(speedSlider.slider.value)
-  //   params.speed = speedSlider.slider.value;
-  // }
-
-  // let trajectoryCont = makeCheckbox(i3r3);
-  // trajectoryCont.setLabel('Display trajectory');
-  // let applyTrajectory = trajectoryCont.checkbox;
-  // applyTrajectory.checked = params.trajectory ? true : false;
-  // applyTrajectory.onclick = () => {
-  //   params.trajectory = applyTrajectory.checked ? true : false
-  // }
-
-  // ratioSlider = makeSlider(i3r4);
-  // ratioSlider.setTitleLabel('Trail ratio');
-  // ratioSlider.setParameters(10, 1, 1, params.maxTrajectoryCount)
-  // ratioSlider.slider.oninput = () => {
-  //   ratioSlider.setValueLabel(ratioSlider.slider.value);
-  //   params.maxTrajectoryCount = ratioSlider.slider.value;
-  // }
-
-  // periodSlider = makeSlider(i3r5);
-  // periodSlider.setTitleLabel('Trail drawing period');
-  // periodSlider.setParameters(1, .1, .1, params.trajectoryPeriod)
-  // periodSlider.slider.oninput = () => {
-  //   periodSlider.setValueLabel(periodSlider.slider.value);
-  //   projectile.trajectorydt = 0;
-  //   params.trajectoryPeriod = Number(periodSlider.slider.value).toFixed(4);
-  // }
-
-  // gSlider = makeSlider(i4r1);
-  // gSlider.setTitleLabel("g scale");
-  // gSlider.setParameters(10, 0.1, .1, 1)
-  // gSlider.setValueLabel(gSlider.slider.value + 'x')
-  // gSlider.slider.oninput = () => {
-  //   gSlider.setValueLabel(gSlider.slider.value + 'x')
-  //   constants.g = gSlider.slider.value * constantsDefault.g;
-  //   i4r2.setLabel('Gravitational acceleration: ' + constants.g.toFixed(2) + ' m/s²');
-  // }
-
-  // airSlider = makeSlider(i4r3);
-  // airSlider.setTitleLabel('Air density scale');
-  // airSlider.setParameters(10, 0.1, .1, 1)
-  // airSlider.setValueLabel(airSlider.slider.value + 'x')
-  // airSlider.slider.oninput = () => {
-  //   airSlider.setValueLabel(airSlider.slider.value + 'x');
-  //   constants.ρ = airSlider.slider.value * constants.defaultρ;
-  //   i4r4.setLabel('Air density: ' + constants.ρ.toFixed(2) + ' kg/m³');
-  // }
 
 }
 

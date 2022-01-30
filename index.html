@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Introduction to Physics final Project which shows a simulation in 2D of a projectile.">
+  <meta name="description"
+    content="Introduction to Physics final Project which shows a simulation in 2D of a projectile.">
   <title>Physics Project - Projectile Motion in 2D</title>
   <link rel="stylesheet" href="css/projectile-motion-2d.css" type="text/css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -20,13 +21,33 @@
       </a>
 
       <ul class="nav col-12 col-lg-auto justify-content-center">
-        <li><a href="#" class="nav-link link-dark">Presentation</a></li>
-        <li><a href="#" class="nav-link link-dark">Simulation</a></li>
+        <li><a type="button" class="nav-link link-dark active" id="presentationAreaLink" data-bs-toggle="tab"
+            data-bs-target="#presentationArea" type="button" role="tab" aria-controls="presentationArea"
+            aria-selected="true">Presentation</a></li>
+        <li><a type="button" class="nav-link link-dark" id="simulationAreaLink" data-bs-toggle="tab"
+            data-bs-target="#simulationArea" type="button" role="tab" aria-controls="simulationArea"
+            aria-selected="false">Simulation</a></li>
       </ul>
     </header>
+    <div class="tab-content" id="myTabContent">
+      <div class="row tab-pane fade show active" id="presentationArea" role="tabpanel"
+        aria-labelledby="presentationAreaLink">
 
-    <div id="simcontainer"><div id="simwrapper"></div></div>
+        <div class="col-12" style="min-height: 85vh;">
+          <h1>Here is the presentation</h1>
+        </div>
 
+      </div>
+
+      <div class="row tab-pane fade" id="simulationArea" role="tabpanel" aria-labelledby="simulationArea">
+
+        <div class="col-12">
+          <div id="simcontainer">
+            <div id="simwrapper"></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <footer class="footer mt-auto py-1 bg-light">
       <div class="container">
@@ -37,7 +58,9 @@
     <script src="js/grafica.min.js"></script>
     <script src="js/dropdownFunctions.js"></script>
     <script src="js/projectileMotion2D.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
   </div>
 </body>
 

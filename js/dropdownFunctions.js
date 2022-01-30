@@ -439,7 +439,7 @@ function setPedroStyle(canvas) {
 
         .item>ul{
           list-style: none;
-          padding-left: 9%;
+          padding-left: 1%;
           margin: 0;
           min-height: 1em;
           background-color: #222;
