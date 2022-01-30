@@ -1,13 +1,13 @@
 //properties of displays
 const display = {
-  W: 1200,
+  W: 1050,
   H: 500
 }
 
 const simDisplay = {
   borderLeft: 0,
   borderUp: 0,
-  W: 800,
+  W: 850,
   H: display.H
 }
 
@@ -133,10 +133,10 @@ function setup() {
   i1.setLabel('Controls');
   let i2 = makeItem(dd);
   i2.setLabel('Parameters');
-  let i3 = makeItem(dd);
-  i3.setLabel('User Interface');
-  let i4 = makeItem(dd);
-  i4.setLabel('Constants');
+  // let i3 = makeItem(dd);
+  // i3.setLabel('User Interface');
+  // let i4 = makeItem(dd);
+  // i4.setLabel('Constants');
 
   let i1r1 = makeRow(i1);
   let controlButtons = new buttonContainer(i1r1)
@@ -153,18 +153,18 @@ function setup() {
   let i2r8 = makeRow(i2);
   i2r8.setLabel('Projectile density: ' + Math.round(calculateDensity() / 10) * 10 + ' kg/m³');
 
-  let i3r1 = makeRow(i3); //scale
-  let i3r2 = makeRow(i3); //speed
-  let i3r3 = makeRow(i3); //display trajectory
-  let i3r4 = makeRow(i3); //trajectory count
-  let i3r5 = makeRow(i3); //trajectory period
+  // let i3r1 = makeRow(i3); //scale
+  // let i3r2 = makeRow(i3); //speed
+  // let i3r3 = makeRow(i3); //display trajectory
+  // let i3r4 = makeRow(i3); //trajectory count
+  // let i3r5 = makeRow(i3); //trajectory period
 
-  let i4r1 = makeRow(i4); //g
-  let i4r2 = makeRow(i4); //g label
-  i4r2.setLabel('Gravitational acceleration: ' + constants.g.toFixed(2) + ' m/s²');
-  let i4r3 = makeRow(i4); //air density
-  let i4r4 = makeRow(i4); // display density
-  i4r4.setLabel('Air density: ' + constants.ρ.toFixed(2) + ' kg/m³');
+  // let i4r1 = makeRow(i4); //g
+  // let i4r2 = makeRow(i4); //g label
+  // i4r2.setLabel('Gravitational acceleration: ' + constants.g.toFixed(2) + ' m/s²');
+  // let i4r3 = makeRow(i4); //air density
+  // let i4r4 = makeRow(i4); // display density
+  // i4r4.setLabel('Air density: ' + constants.ρ.toFixed(2) + ' kg/m³');
 
   let btnPause = controlButtons.makeButton('Pause', NaN);
   btnPause.onclick = () => {
@@ -316,71 +316,71 @@ function setup() {
     i2r8.setLabel('Projectile density: ' + Math.round(calculateDensity() / 10) * 10 + ' kg/m³');
   }
 
-  scaleSlider = makeSlider(i3r1);
-  scaleSlider.setTitleLabel('Scale');
-  scaleSlider.setParameters(0.005, 0.001, 0.001, (params.scale / 3780).toFixed(3))
-  scaleSlider.slider.oninput = () => {
-    scaleSlider.setValueLabel(scaleSlider.slider.value)
-    projectile.trajectory = [];
-    projectile.trajectoryCount = 0;
-    params.scale = 3780 * scaleSlider.slider.value;
-    projectileCanvas.resizeCanvas(params.r * 4 * params.scale, params.r * 4 * params.scale);
-    projectileCanvas.translate(params.r * 2 * params.scale, params.r * 2 * params.scale);
-    projectileCanvas.rotate(-projectile.θ);
-  }
+  // scaleSlider = makeSlider(i3r1);
+  // scaleSlider.setTitleLabel('Scale');
+  // scaleSlider.setParameters(0.005, 0.001, 0.001, (params.scale / 3780).toFixed(3))
+  // scaleSlider.slider.oninput = () => {
+  //   scaleSlider.setValueLabel(scaleSlider.slider.value)
+  //   projectile.trajectory = [];
+  //   projectile.trajectoryCount = 0;
+  //   params.scale = 3780 * scaleSlider.slider.value;
+  //   projectileCanvas.resizeCanvas(params.r * 4 * params.scale, params.r * 4 * params.scale);
+  //   projectileCanvas.translate(params.r * 2 * params.scale, params.r * 2 * params.scale);
+  //   projectileCanvas.rotate(-projectile.θ);
+  // }
 
-  speedSlider = makeSlider(i3r2);
-  speedSlider.setTitleLabel('Speed');
-  speedSlider.setParameters(10, .1, .1, params.speed)
-  speedSlider.slider.oninput = () => {
-    speedSlider.setValueLabel(speedSlider.slider.value)
-    params.speed = speedSlider.slider.value;
-  }
+  // speedSlider = makeSlider(i3r2);
+  // speedSlider.setTitleLabel('Speed');
+  // speedSlider.setParameters(10, .1, .1, params.speed)
+  // speedSlider.slider.oninput = () => {
+  //   speedSlider.setValueLabel(speedSlider.slider.value)
+  //   params.speed = speedSlider.slider.value;
+  // }
 
-  let trajectoryCont = makeCheckbox(i3r3);
-  trajectoryCont.setLabel('Display trajectory');
-  let applyTrajectory = trajectoryCont.checkbox;
-  applyTrajectory.checked = params.trajectory ? true : false;
-  applyTrajectory.onclick = () => {
-    params.trajectory = applyTrajectory.checked ? true : false
-  }
+  // let trajectoryCont = makeCheckbox(i3r3);
+  // trajectoryCont.setLabel('Display trajectory');
+  // let applyTrajectory = trajectoryCont.checkbox;
+  // applyTrajectory.checked = params.trajectory ? true : false;
+  // applyTrajectory.onclick = () => {
+  //   params.trajectory = applyTrajectory.checked ? true : false
+  // }
 
-  ratioSlider = makeSlider(i3r4);
-  ratioSlider.setTitleLabel('Trail ratio');
-  ratioSlider.setParameters(10, 1, 1, params.maxTrajectoryCount)
-  ratioSlider.slider.oninput = () => {
-    ratioSlider.setValueLabel(ratioSlider.slider.value);
-    params.maxTrajectoryCount = ratioSlider.slider.value;
-  }
+  // ratioSlider = makeSlider(i3r4);
+  // ratioSlider.setTitleLabel('Trail ratio');
+  // ratioSlider.setParameters(10, 1, 1, params.maxTrajectoryCount)
+  // ratioSlider.slider.oninput = () => {
+  //   ratioSlider.setValueLabel(ratioSlider.slider.value);
+  //   params.maxTrajectoryCount = ratioSlider.slider.value;
+  // }
 
-  periodSlider = makeSlider(i3r5);
-  periodSlider.setTitleLabel('Trail drawing period');
-  periodSlider.setParameters(1, .1, .1, params.trajectoryPeriod)
-  periodSlider.slider.oninput = () => {
-    periodSlider.setValueLabel(periodSlider.slider.value);
-    projectile.trajectorydt = 0;
-    params.trajectoryPeriod = Number(periodSlider.slider.value).toFixed(4);
-  }
+  // periodSlider = makeSlider(i3r5);
+  // periodSlider.setTitleLabel('Trail drawing period');
+  // periodSlider.setParameters(1, .1, .1, params.trajectoryPeriod)
+  // periodSlider.slider.oninput = () => {
+  //   periodSlider.setValueLabel(periodSlider.slider.value);
+  //   projectile.trajectorydt = 0;
+  //   params.trajectoryPeriod = Number(periodSlider.slider.value).toFixed(4);
+  // }
 
-  gSlider = makeSlider(i4r1);
-  gSlider.setTitleLabel("g scale");
-  gSlider.setParameters(10, 0.1, .1, 1)
-  gSlider.setValueLabel(gSlider.slider.value + 'x')
-  gSlider.slider.oninput = () => {
-    gSlider.setValueLabel(gSlider.slider.value + 'x')
-    constants.g = gSlider.slider.value * constantsDefault.g;
-    i4r2.setLabel('Gravitational acceleration: ' + constants.g.toFixed(2) + ' m/s²');
-  }
+  // gSlider = makeSlider(i4r1);
+  // gSlider.setTitleLabel("g scale");
+  // gSlider.setParameters(10, 0.1, .1, 1)
+  // gSlider.setValueLabel(gSlider.slider.value + 'x')
+  // gSlider.slider.oninput = () => {
+  //   gSlider.setValueLabel(gSlider.slider.value + 'x')
+  //   constants.g = gSlider.slider.value * constantsDefault.g;
+  //   i4r2.setLabel('Gravitational acceleration: ' + constants.g.toFixed(2) + ' m/s²');
+  // }
 
-  airSlider = makeSlider(i4r3);
-  airSlider.setTitleLabel('Air density scale');
-  airSlider.setParameters(10, 0.1, .1, 1)
-  airSlider.setValueLabel(airSlider.slider.value + 'x')
-  airSlider.slider.oninput = () => {
-    airSlider.setValueLabel(airSlider.slider.value + 'x');
-    constants.ρ = airSlider.slider.value * constants.defaultρ;
-    i4r4.setLabel('Air density: ' + constants.ρ.toFixed(2) + ' kg/m³');
-  }
+  // airSlider = makeSlider(i4r3);
+  // airSlider.setTitleLabel('Air density scale');
+  // airSlider.setParameters(10, 0.1, .1, 1)
+  // airSlider.setValueLabel(airSlider.slider.value + 'x')
+  // airSlider.slider.oninput = () => {
+  //   airSlider.setValueLabel(airSlider.slider.value + 'x');
+  //   constants.ρ = airSlider.slider.value * constants.defaultρ;
+  //   i4r4.setLabel('Air density: ' + constants.ρ.toFixed(2) + ' kg/m³');
+  // }
 
 }
 
@@ -403,7 +403,7 @@ function draw() {
   noStroke()
   fill(255)
   textSize(20)
-  text('scale ' + ((params.scale / 3780)).toFixed(3) + 'x', display.W - 385, 25);
+  // text('scale ' + ((params.scale / 3780)).toFixed(3) + 'x', display.W - 385, 25);
 }
 
 function drawProjectile(canvas) {
@@ -478,13 +478,13 @@ function drawPlots(c) {
   c.fill(255)
   c.noStroke()
 
-  c.text('time = ' + projectile.t.toFixed(1) + ' s', 7 * c.textSize() + 21, 4 * c.textSize());
-  c.text('distance = ' + projectile.x.toFixed(0) + ' m', 7 * c.textSize() - 15, 5 * c.textSize());
-  c.text('height = ' + (display.H - projectile.y).toFixed(0) + ' m', 7 * c.textSize() + 5, 6 * c.textSize());
-  c.text('velocity = ' + (sqrt(projectile.vy ** 2 + projectile.vx ** 2)).toFixed(0) + ' m/s', 7 * c.textSize() - 7, 7 * c.textSize());
+  c.text('time = ' + projectile.t.toFixed(1) + ' s', 2 * c.textSize() + 21, 4 * c.textSize());
+  c.text('distance = ' + projectile.x.toFixed(0) + ' m', 2 * c.textSize() - 15, 5 * c.textSize());
+  c.text('height = ' + (display.H - projectile.y).toFixed(0) + ' m', 2 * c.textSize() + 5, 6 * c.textSize());
+  c.text('velocity = ' + (sqrt(projectile.vy ** 2 + projectile.vx ** 2)).toFixed(0) + ' m/s', 2 * c.textSize() - 7, 7 * c.textSize());
 
   if (params.drag) {
-    c.text('drag = ' + ((projectile.drag * params.m / 100).toFixed(0) * 100) + ' N', 7 * c.textSize() + 20, 8 * c.textSize());
+    c.text('drag = ' + ((projectile.drag * params.m / 100).toFixed(0) * 100) + ' N', 2 * c.textSize() + 20, 8 * c.textSize());
   }
 
 }

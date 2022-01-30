@@ -22,7 +22,7 @@ html, body {
 
 #simcontainer{
     display: block;
-    margin: 60px;
+    margin-top: 50px;
     text-align: center;
     isolation: isolate;
     min-height: 70vh;
