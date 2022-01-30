@@ -153,7 +153,7 @@ function setup() {
   btnPause.onclick = () => {
     moveProjectile = false
   }
-  let btnPlay = controlButtons.makeButton('Play', NaN);
+  let btnPlay = controlButtons.makeButton('Launch', NaN);
   btnPlay.onclick = () => {
     moveProjectile = true
   }
